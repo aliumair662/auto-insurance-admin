@@ -1,0 +1,74 @@
+{
+	"name": "vision-ui-dashboard-react",
+	"version": "3.0.0",
+	"private": true,
+	"author": "Creative Tim",
+	"license": "See license in https://www.creative-tim.com/license",
+	"description": "Material UI version of Vision UI Dashboard by Creative Tim",
+	"homepage": "https://demos.creative-tim.com/vision-ui-dashboard-react/#/dashboard",
+	"bugs": {
+		"url": "https://github.com/creativetimofficial/vision-ui-dashboard-react/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/creativetimofficial/vision-ui-dashboard-react.git"
+	},
+	"dependencies": {
+		"@emotion/cache": "11.11.0",
+		"@emotion/react": "^11.11.0",
+		"@emotion/styled": "^11.11.0",
+		"@mui/icons-material": "5.11.16",
+		"@mui/material": "^5.13.0",
+		"@mui/styled-engine": "5.12.3",
+		"@mui/styles": "^5.12.3",
+		"@react-oauth/google": "^0.11.0",
+		"@testing-library/jest-dom": "5.16.5",
+		"@testing-library/react": "14.0.0",
+		"@testing-library/user-event": "14.4.3",
+		"apexcharts": "^3.40.0",
+		"axios": "^1.4.0",
+		"chroma-js": "2.4.2",
+		"eslint": "^8.40.0",
+		"install": "^0.13.0",
+		"npm": "^9.6.6",
+		"prop-types": "15.8.1",
+		"react": "^18.2.0",
+		"react-apexcharts": "^1.4.0",
+		"react-countup": "6.4.2",
+		"react-dom": "^18.2.0",
+		"react-flatpickr": "3.10.13",
+		"react-github-btn": "1.4.0",
+		"react-icons": "^4.8.0",
+		"react-router-dom": "6.11.1",
+		"react-scripts": "^5.0.1",
+		"stylis": "4.2.0",
+		"stylis-plugin-rtl": "^2.0.2",
+		"uuid": "9.0.0",
+		"web-vitals": "3.3.1"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}
