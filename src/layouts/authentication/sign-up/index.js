@@ -28,7 +28,8 @@ import Stack from "@mui/material/Stack";
 
 // Icons
 import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
-
+// config
+import { apiURL } from "../../../config";
 // Vision UI Dashboard React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
@@ -59,6 +60,20 @@ function SignIn() {
     onSuccess: (codeResponse) => setUser(codeResponse),
     onError: (error) => console.log("Login Failed:", error),
   });
+  const saveUser = (user) => {
+    axios.post(`${apiURL}/user/save`, { data: user }, {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(response => {
+        localStorage.setItem('userID', response.data._id)
+        navigate('/profile');
+      })
+      .catch(error => {
+        console.error('Error:', error.message);
+      });
+  }
   useEffect(() => {
     if (user) {
       axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
@@ -67,7 +82,7 @@ function SignIn() {
           Accept: "application/json"
         }
       }).then((res) => {
-        navigate('/profile', { state: { user: res.data } });
+        saveUser(res.data);
       }).catch((err) => console.log(err));
     }
   }, [user]);

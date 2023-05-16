@@ -40,7 +40,6 @@
 
 // Vision UI Dashboard React layouts
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import Profile from "layouts/profile";
@@ -51,10 +50,10 @@ import SignUp from "layouts/authentication/sign-up";
 import { IoRocketSharp } from "react-icons/io5";
 import { IoIosDocument } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
-import { IoBuild } from "react-icons/io5";
 import { BsCreditCardFill } from "react-icons/bs";
-import { IoStatsChart } from "react-icons/io5";
+import { IoNewspaperOutline } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
+import Subscriptions from "layouts/subscription";
 
 const routes = [
   {
@@ -68,31 +67,31 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
-    key: "tables",
-    route: "/tables",
-    icon: <IoStatsChart size="15px" color="inherit" />,
-    component: <Tables />,
+    name: "Subscriptions",
+    key: "subscriptions",
+    route: "/subscriptions",
+    icon: <IoNewspaperOutline  size="15px" color="inherit" />,
+    component: <Subscriptions />,
     noCollapse: true,
   },
   {
     type: "collapse",
-    name: "Billing",
-    key: "billing",
-    route: "/billing",
+    name: "Create Directory",
+    key: "createDirectory",
+    route: "/directory",
     icon: <BsCreditCardFill size="15px" color="inherit" />,
     component: <Billing />,
     noCollapse: true,
   },
-  {
-    type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    route: "/rtl",
-    icon: <IoBuild size="15px" color="inherit" />,
-    component: <RTL />,
-    noCollapse: true,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "RTL",
+  //   key: "rtl",
+  //   route: "/rtl",
+  //   icon: <IoBuild size="15px" color="inherit" />,
+  //   component: <RTL />,
+  //   noCollapse: true,
+  // },
   { type: "title", title: "Account Pages", key: "account-pages" },
   {
     type: "collapse",

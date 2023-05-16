@@ -38,7 +38,8 @@ import { IoBuild } from "react-icons/io5";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import { useEffect, useState } from "react";
 
-function Header() {
+function Header({ data }) {
+  console.log(data);
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
   const [tabValue, setTabValue] = useState(0);
 
@@ -105,7 +106,7 @@ function Header() {
             })}
           >
             <VuiAvatar
-              src={burceMars}
+              src={data.picture || burceMars}
               alt="profile-image"
               variant="rounded"
               size="xl"
@@ -127,10 +128,10 @@ function Header() {
               })}
             >
               <VuiTypography variant="lg" color="white" fontWeight="bold">
-                Mark Johnson
+                {data?.name || 'Mark johnson'}
               </VuiTypography>
               <VuiTypography variant="button" color="text" fontWeight="regular">
-                mark@simmmple.com
+                {data?.email || 'mark@simmmple.com'}
               </VuiTypography>
             </VuiBox>
           </Grid>

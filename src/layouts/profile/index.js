@@ -44,11 +44,26 @@ import Header from "layouts/profile/components/Header";
 import PlatformSettings from "layouts/profile/components/PlatformSettings";
 import Welcome from "../profile/components/Welcome/index";
 import CarInformations from "./components/CarInformations";
+import { useEffect, useState } from "react";
+import { apiURL } from "config";
+import axios from "axios";
 
 function Overview() {
+  const [userId, setUserId] = useState(localStorage.getItem('userID'));
+  const [user, setUser] = useState(localStorage.getItem('userID'));
+
+  useEffect(() => {
+    axios.get(`${apiURL}/user/${userId}`, {
+      headers: {
+        Accept: "application/json"
+      }
+    }).then((res) => {
+      setUser(res.data);
+    }).catch((err) => console.log(err));
+  }, [userId]);
   return (
     <DashboardLayout>
-      <Header />
+      <Header data={user || []} />
       <VuiBox mt={5} mb={3}>
         <Grid
           container
