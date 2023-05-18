@@ -28,6 +28,7 @@
 		"apexcharts": "^3.40.0",
 		"axios": "^1.4.0",
 		"chroma-js": "2.4.2",
+		"country-state-city": "^3.1.4",
 		"eslint": "^8.40.0",
 		"install": "^0.13.0",
 		"npm": "^9.6.6",

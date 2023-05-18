@@ -27,42 +27,45 @@ import VuiTypography from "components/VuiTypography";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import Table from "examples/Tables/Table";
-
+import axios from 'axios'
 // Data
-import authorsTableData from "layouts/tables/data/authorsTableData";
-import projectsTableData from "layouts/tables/data/projectsTableData";
+import { Stack } from "@mui/material";
 
-function Subscriptions() {
-  const { columns, rows } = authorsTableData;
-  const { columns: prCols, rows: prRows } = projectsTableData;
+import { useState, useEffect } from "react";
+import MmbShipCard from "./card";
+import { apiURL } from "config";
+function MemberShip() {
 
+  const [plans, setPlans] = useState([]);
+  useEffect(() => {
+    // Fetch data from the backend API endpoint
+    axios.get(`${apiURL}/membership`, {
+      headers: {
+        _id: localStorage.getItem('userID')
+      }
+    })
+      .then(response => {
+        setPlans(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
   return (
     <DashboardLayout>
       <DashboardNavbar />
       <VuiBox py={3}>
         <VuiBox mb={3}>
           <Card>
-            <VuiBox display="flex" justifyContent="space-between" alignItems="center" mb="22px">
-              <VuiTypography variant="lg" color="white">
-                Authors table
-              </VuiTypography>
-            </VuiBox>
-            <VuiBox
-              sx={{
-                "& th": {
-                  borderBottom: ({ borders: { borderWidth }, palette: { grey } }) =>
-                    `${borderWidth[1]} solid ${grey[700]}`,
-                },
-                "& .MuiTableRow-root:not(:last-child)": {
-                  "& td": {
-                    borderBottom: ({ borders: { borderWidth }, palette: { grey } }) =>
-                      `${borderWidth[1]} solid ${grey[700]}`,
-                  },
-                },
-              }}
-            >
-              <Table columns={columns} rows={rows} />
+            <VuiBox display="flex" flexDirection="column" height="100%">
+              <VuiBox display="flex" flexDirection="column" mb="24px">
+                <VuiTypography color="white" variant="lg" fontWeight="bold" mb="6px">
+                  Plans List
+                </VuiTypography>
+              </VuiBox>
+              <Stack direction={"row"} justifyContent='space-evenly' width='90%'>
+                {plans.map(plan => (<MmbShipCard key={plan._id} plan={plan} />))}
+              </Stack>
             </VuiBox>
           </Card>
         </VuiBox>
@@ -72,4 +75,4 @@ function Subscriptions() {
   );
 }
 
-export default Subscriptions;
+export default MemberShip;

@@ -53,7 +53,8 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { BsCreditCardFill } from "react-icons/bs";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
-import Subscriptions from "layouts/subscription";
+import MemberShip from "layouts/memberships";
+import Directory from "layouts/directory";
 
 const routes = [
   {
@@ -67,20 +68,20 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Subscriptions",
-    key: "subscriptions",
-    route: "/subscriptions",
-    icon: <IoNewspaperOutline  size="15px" color="inherit" />,
-    component: <Subscriptions />,
+    name: "Membership Plan",
+    key: "membership",
+    route: "/membership",
+    icon: <IoNewspaperOutline size="15px" color="inherit" />,
+    component: <MemberShip />,
     noCollapse: true,
   },
   {
     type: "collapse",
     name: "Create Directory",
-    key: "createDirectory",
+    key: "directory",
     route: "/directory",
     icon: <BsCreditCardFill size="15px" color="inherit" />,
-    component: <Billing />,
+    component: <Directory />,
     noCollapse: true,
   },
   // {
